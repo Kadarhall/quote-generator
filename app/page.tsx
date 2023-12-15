@@ -1,95 +1,77 @@
-import Image from 'next/image'
+"use client"
+
+import React, { useState } from 'react'
 import styles from './page.module.css'
 
+// Components
+import { BackgroundImage1, BackgroundImage2, FooterCon, FooterLink, GenerateQuoteButton, GenerateQuoteButtonText, GradientBackgroundCon, QuoteGeneratorCon, QuoteGeneratorInnerCon, QuoteGeneratorSubTitle, QuoteGeneratorTitle } from './components/QuoteGenerator/QuoteGeneratorElements'
+
+// Assets
+import Clouds1 from '../assets/cloud-and-thunder.png'
+import Clouds2 from '../assets/cloudy-weather.png'
+
+
 export default function Home() {
+  const [numberOfQuotes, setNumberOfQuotes] = useState<Number | null>(0);
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      {/* <Head>
+        <title>Inspirational Quote Generator</title>
+        <meta name="description" content="A fun project to generate quotes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head> */}
+      {/* Background */}
+      <GradientBackgroundCon>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+        {/* Quote Generator Modal Popup */}
+        {/* <QuoteGeneratorModal
+
+        /> */}
+
+        {/* Quote Generator */}
+        <QuoteGeneratorCon style={styles}>
+          <QuoteGeneratorInnerCon>
+            <QuoteGeneratorTitle>
+              Daily Inspiration Generator
+            </QuoteGeneratorTitle>
+
+            <QuoteGeneratorSubTitle>
+              Looking for a splash of inspiration? Generate a quote card with a random inspirational
+              quote provided by <FooterLink href="https://zenquotes.io" target="_blank"
+              rel="noopener noreferrer">ZenQuotes API</FooterLink>
+            </QuoteGeneratorSubTitle>
+
+            <GenerateQuoteButton>
+              <GenerateQuoteButtonText onClick={null}>
+                Make a Quote
+              </GenerateQuoteButtonText>
+            </GenerateQuoteButton>
+          </QuoteGeneratorInnerCon>
+        </QuoteGeneratorCon>
+
+        <BackgroundImage1
+          src={Clouds1}
+          height="300"
+          alt="cloudybackground1"
         />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <BackgroundImage2
+          src={Clouds2}
+          height="300"
+          alt="cloudybackground2"
+        />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <FooterCon>
+          <>
+            Quotes generated: {numberOfQuotes}
+            <br />
+            Developed by <FooterLink href="http://kadarhall.com" target="_blank" rel="noopener noreferrer">Kadar Hall</FooterLink>
+          </>
+        </FooterCon>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </GradientBackgroundCon>
+    </>
+    
   )
 }
