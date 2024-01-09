@@ -7,7 +7,7 @@ import './globals.css'
 import { Amplify } from '@/node_modules/aws-amplify/dist/esm/index';
 import awsExports from '../src/aws-exports';
 
-Amplify.configure({ awsExports, ssr: true })
+Amplify.configure({ ...awsExports, ssr: true })
 
 const inter = Inter({ subsets: ['latin'] })
 
