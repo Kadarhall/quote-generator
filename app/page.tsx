@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 
-//import type { Schema } from '@/amplify/data/resource'
+import type { Schema } from '@/amplify/data/resource'
 import { Amplify } from '@/node_modules/aws-amplify/dist/esm/index';
 import config from '../src/amplifyconfiguration.json';
 
@@ -38,10 +38,12 @@ interface UpdateQuoteInfoData {
   updatedAt: string;
 }
 
-
-
 // type guard for our fetch function
-function isGraphQLResultForquotesQueryName(response: any) {
+function isGraphQLResultForquotesQueryName(response: any): response is Schema<{
+  quotesQueryName: {
+    items: [UpdateQuoteInfoData]
+  }
+}> {
   return response.data && response.data.quotesQueryName
 }
 
