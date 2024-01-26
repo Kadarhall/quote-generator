@@ -20,7 +20,6 @@ const docClient = DynamoDBDocumentClient.from(client);
 
 // Image generation packages
 import sharp from 'sharp';
-import fetch from 'fetch';
 import path from 'path';
 import fs from 'fs';
 
