@@ -19,10 +19,10 @@ const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
 // Image generation packages
-const sharp = require('sharp');
-const fetch = require('node-fetch');
-const path = require('path');
-const fs = require('fs');
+import sharp from 'sharp';
+import fetch from 'fetch';
+import path from 'path';
+import fs from 'fs';
 
 // Function: update DynamoDB table
 async function updateDynamoDBObject() {
