@@ -58,7 +58,7 @@ export const FooterLink = styled(Link)`
 
 export const QuoteGeneratorCon = styled.div`
   min-height: 350px;
-  min-width: 370px;
+  min-width: 350px;
   height: 58vh;
   width: 70vw;
   border: 2px solid #ffffff22;
@@ -157,7 +157,7 @@ export const QuoteGeneratorModelCon = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70vw;
+  width: 82vw;
   height: 70vh;
   box-shadow: 24;
   /* transition: 0.2s all ease-in-out; */
