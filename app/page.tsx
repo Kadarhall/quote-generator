@@ -3,13 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 
-import type { Schema } from '@/amplify/data/resource'
+//import type { Schema } from '@/amplify/data/resource'
 import { Amplify } from '@/node_modules/aws-amplify/dist/esm/index';
 import config from '../src/amplifyconfiguration.json';
 
 Amplify.configure(config);
 
-import { generateClient } from 'aws-amplify/api';
+import { generateClient } from '@/node_modules/@aws-amplify/api/dist/esm/index';
 
 // Components
 import { BackgroundImage1, BackgroundImage2, FooterCon, FooterLink, GenerateQuoteButton, GenerateQuoteButtonText, GradientBackgroundCon, QuoteGeneratorCon, QuoteGeneratorInnerCon, QuoteGeneratorSubTitle, QuoteGeneratorTitle } from './components/QuoteGenerator/QuoteGeneratorElements'
@@ -38,12 +38,10 @@ interface UpdateQuoteInfoData {
   updatedAt: string;
 }
 
+
+
 // type guard for our fetch function
-function isGraphQLResultForquotesQueryName(response: any): response is Schema<{
-  quotesQueryName: {
-    items: [UpdateQuoteInfoData]
-  }
-}> {
+function isGraphQLResultForquotesQueryName(response: any) {
   return response.data && response.data.quotesQueryName
 }
 
