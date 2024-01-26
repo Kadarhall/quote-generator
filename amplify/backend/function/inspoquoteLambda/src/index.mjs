@@ -53,7 +53,7 @@ async function updateDynamoDBObject() {
     }
 }
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
 
     const apiUrl = "https://zenquotes.io/api/random";
