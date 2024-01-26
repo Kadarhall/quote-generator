@@ -20,6 +20,7 @@ import Clouds1 from '../assets/cloud-and-thunder.png'
 import Clouds2 from '../assets/cloudy-weather.png'
 import { generateAQuote, quotesQueryName } from '@/src/graphql/queries';
 import QuoteGeneratorModal from './components/QuoteGenerator/index';
+import Link from '@/node_modules/next/link';
 
 // interface for our appsync <> lambda JSON response
 interface GenerateAQuoteData {
@@ -198,7 +199,7 @@ export default function Home() {
           <>
             Quotes generated: {numberOfQuotes}
             <br />
-            Developed by <FooterLink href="http://kadarhall.com" target="_blank" rel="noopener noreferrer">Kadar Hall</FooterLink>
+            Created by <strong><FooterLink href="http://kadarhall.com" target="_blank" rel="noopener noreferrer">Kadar Hall</FooterLink></strong> and <strong><FooterLink href="https://www.instagram.com/clouds_inspiration365?igsh=ejhmc2Y5NGkyZjE=">©CloudsInspiration365</FooterLink></strong>
           </>
         </FooterCon>
 
