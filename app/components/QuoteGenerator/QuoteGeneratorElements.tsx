@@ -157,7 +157,7 @@ export const QuoteGeneratorModelCon = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 82vw;
+  width: 70vw;
   height: 70vh;
   box-shadow: 24;
   /* transition: 0.2s all ease-in-out; */
