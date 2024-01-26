@@ -21,11 +21,11 @@ import fs from 'fs';
 
 // Function: update DynamoDB table
 async function updateDynamoDBObject() {
-    const quoteTableName = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_NAME;;
+    const quoteTableName = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_NAME;
     const quoteObjectId = "23338-232323-2332323-323445";
 
     try {
-        var quoteParams = JSON.stringify({
+        let quoteParams = {
             TableName: quoteTableName,
             Key: {
                 "id": quoteObjectId
@@ -38,7 +38,7 @@ async function updateDynamoDBObject() {
                 "#quotesGenerated": "quotesGenerated",
             },
             ReturnValues: "UPDATED_NEW",
-        });
+        };
 
         const updateQuoteObject = await docClient.send(new UpdateCommand(quoteParams)).promise();
         console.log(updateQuoteObject);

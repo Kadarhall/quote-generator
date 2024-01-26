@@ -9,13 +9,14 @@ import Lottie from 'react-lottie-player'
 export const ImageBlobCon = styled.div`
   position: relative;
     text-align: center;
-    top: 10px;
-    margin-top: 20px;
+    /* top: 10px;
+    margin-top: 20px; */
     transition: 0.3s all ease-in-out;
     width: fit-content;
     margin: auto;
     height: 100px;
     z-index: 99999;
+    margin-bottom: 50px;
     
     &:hover {
         transform: scale(4.8);
@@ -44,7 +45,7 @@ export const DownloadQuoteCardCon = styled.div`
   position: relative;
   border-radius: 20px;
   cursor: pointer;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   transform: scale(0.7);
   width: calc(70vw/2);
   margin: auto;
@@ -74,8 +75,8 @@ export const DownloadQuoteCardConText = styled.div`
   position: relative;
   width: 100%;
   text-align: center;
-  padding: 0px 20px 0px 20px;
-  margin-top: -60px;
+  padding: 10px 20px 10px 20px;
+  /* margin-top: -60px; */
   margin-bottom: 10px;
   pointer-events: none;
   @media only screen and (max-width: 600px) {
