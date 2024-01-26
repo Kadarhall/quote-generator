@@ -111,6 +111,13 @@ const QuoteGeneratorModal = ({
                 />
               </>
             }
+            {quoteReceived === null && processingQuote === false &&
+            <>
+              <QuoteGeneratorTitle>
+                  Image error. Please try again!
+                </QuoteGeneratorTitle>
+            </>
+            }
 
 
           </QuoteGeneratorModelInnerCon>

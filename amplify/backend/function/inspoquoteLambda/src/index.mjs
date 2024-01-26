@@ -115,8 +115,7 @@ export const handler = async (event) => {
                           font-family: Verdana;
                       }
                   </style>
-                  <circle cx="382" cy="76" r="44" fill="rgba(255, 255, 255, 0.155)" />
-                  <text x="382" y="76" dy="50" text-anchor="middle" font-size="90" font-family="Verdana" fill="white">"</text>
+                  
                   <g>
                       <rect x="0" y="0" width="${width}" height="auto"></rect>
                       <text id="lastLineOfQuote" x="375" y="120" font-family="Verdana" font-size="35" fill="white" text-anchor="middle">

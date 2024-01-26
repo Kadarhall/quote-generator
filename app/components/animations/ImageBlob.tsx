@@ -36,11 +36,11 @@ const ImageBlob = ({
   // }, []);
 
   if (!blobUrl) {
-    return null;
+    return <div>Image error. Try again!</div>;
   }
 
   return (
-    <Image src={blobUrl} alt="Generated quote card" width={150} height={100} />
+    <Image className="quoteImg" src={blobUrl} alt="Generated quote card" width={150} height={100} />
   )
 }
 
