@@ -7,10 +7,6 @@ Amplify Params - DO NOT EDIT */
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
- const GRAPHQL_ID = process.env.API_QUOTEGENERATOR_GRAPHQLAPIIDOUTPUT;
- const QOUTAPPDATATABLE_ARN = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_ARN;
- const QOUTAPPDATATABLE_NAME = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_NAME;
-
 // AWS packages
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
@@ -25,7 +21,7 @@ import fs from 'fs';
 
 // Function: update DynamoDB table
 async function updateDynamoDBObject() {
-    const quoteTableName = QOUTAPPDATATABLE_NAME;
+    const quoteTableName = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_NAME;;
     const quoteObjectId = "23338-232323-2332323-323445";
 
     try {
