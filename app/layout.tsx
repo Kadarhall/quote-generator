@@ -5,7 +5,7 @@ import './globals.css'
 
 // AWS Imports
 import { Amplify } from '@/node_modules/aws-amplify/dist/esm/index';
-import config from '../src/amplifyconfiguration.json';
+import config from '@/src/amplifyconfiguration.json';
 
 Amplify.configure(config);
 

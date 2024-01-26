@@ -6,7 +6,7 @@ import styles from './page.module.css'
 //import type { Schema } from 'aws-amplify/data/resource'
 import { GraphQLQuery } from '@/node_modules/@aws-amplify/api/dist/esm/index';
 import { Amplify } from '@/node_modules/aws-amplify/dist/esm/index';
-import config from '../src/amplifyconfiguration.json';
+import config from '@/src/amplifyconfiguration.json';
 
 Amplify.configure(config);
 
