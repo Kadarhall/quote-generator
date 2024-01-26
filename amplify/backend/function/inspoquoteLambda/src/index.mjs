@@ -29,7 +29,7 @@ async function updateDynamoDBObject() {
     const quoteObjectId = "23338-232323-2332323-323445";
 
     try {
-        var quoteParams = {
+        var quoteParams = JSON.stringify({
             TableName: quoteTableName,
             Key: {
                 "id": quoteObjectId
@@ -42,7 +42,7 @@ async function updateDynamoDBObject() {
                 "#quotesGenerated": "quotesGenerated",
             },
             ReturnValues: "UPDATED_NEW",
-        };
+        });
 
         const updateQuoteObject = await docClient.send(new UpdateCommand(quoteParams)).promise();
         console.log(updateQuoteObject);
