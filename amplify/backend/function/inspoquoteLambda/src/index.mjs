@@ -7,10 +7,6 @@ Amplify Params - DO NOT EDIT */
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
- const GRAPHQL_ID = process.env.API_QUOTEGENERATOR_GRAPHQLAPIIDOUTPUT;
- const QOUTAPPDATATABLE_ARN = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_ARN;
- const QOUTAPPDATATABLE_NAME = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_NAME;
-
 // AWS packages
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
@@ -19,18 +15,17 @@ const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
 // Image generation packages
-const sharp = require('sharp');
-const fetch = require('node-fetch');
-const path = require('path');
-const fs = require('fs');
+import sharp from 'sharp';
+import path from 'path';
+import fs from 'fs';
 
 // Function: update DynamoDB table
 async function updateDynamoDBObject() {
-    const quoteTableName = QOUTAPPDATATABLE_NAME;
+    const quoteTableName = process.env.API_QUOTEGENERATOR_QOUTAPPDATATABLE_NAME;
     const quoteObjectId = "23338-232323-2332323-323445";
 
     try {
-        var quoteParams = {
+        let quoteParams = {
             TableName: quoteTableName,
             Key: {
                 "id": quoteObjectId
@@ -53,7 +48,7 @@ async function updateDynamoDBObject() {
     }
 }
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
 
     const apiUrl = "https://zenquotes.io/api/random";
@@ -120,8 +115,7 @@ exports.handler = async (event) => {
                           font-family: Verdana;
                       }
                   </style>
-                  <circle cx="382" cy="76" r="44" fill="rgba(255, 255, 255, 0.155)" />
-                  <text x="382" y="76" dy="50" text-anchor="middle" font-size="90" font-family="Verdana" fill="white">"</text>
+                  
                   <g>
                       <rect x="0" y="0" width="${width}" height="auto"></rect>
                       <text id="lastLineOfQuote" x="375" y="120" font-family="Verdana" font-size="35" fill="white" text-anchor="middle">

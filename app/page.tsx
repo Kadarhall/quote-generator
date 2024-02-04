@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 
-import type { Schema } from '@/amplify/data/resource'
+//import type { Schema } from 'aws-amplify/data/resource'
+import { GraphQLQuery } from '@/node_modules/@aws-amplify/api/dist/esm/index';
 import { Amplify } from '@/node_modules/aws-amplify/dist/esm/index';
-import config from '../src/amplifyconfiguration.json';
+import config from '@/src/amplifyconfiguration.json';
 
 Amplify.configure(config);
 
-import { generateClient } from 'aws-amplify/api';
+import { generateClient } from '@/node_modules/@aws-amplify/api/dist/esm/index';
 
 // Components
 import { BackgroundImage1, BackgroundImage2, FooterCon, FooterLink, GenerateQuoteButton, GenerateQuoteButtonText, GradientBackgroundCon, QuoteGeneratorCon, QuoteGeneratorInnerCon, QuoteGeneratorSubTitle, QuoteGeneratorTitle } from './components/QuoteGenerator/QuoteGeneratorElements'
@@ -19,6 +20,7 @@ import Clouds1 from '../assets/cloud-and-thunder.png'
 import Clouds2 from '../assets/cloudy-weather.png'
 import { generateAQuote, quotesQueryName } from '@/src/graphql/queries';
 import QuoteGeneratorModal from './components/QuoteGenerator/index';
+import Link from '@/node_modules/next/link';
 
 // interface for our appsync <> lambda JSON response
 interface GenerateAQuoteData {
@@ -39,9 +41,11 @@ interface UpdateQuoteInfoData {
 }
 
 // type guard for our fetch function
-function isGraphQLResultForquotesQueryName(response: any): response is Schema<{
-  quotesQueryName: {
-    items: [UpdateQuoteInfoData]
+function isGraphQLResultForquotesQueryName(response: any): response is GraphQLQuery<{
+  data: {
+    quotesQueryName: {
+      items: [UpdateQuoteInfoData]
+    }
   }
 }> {
   return response.data && response.data.quotesQueryName
@@ -195,7 +199,7 @@ export default function Home() {
           <>
             Quotes generated: {numberOfQuotes}
             <br />
-            Developed by <FooterLink href="http://kadarhall.com" target="_blank" rel="noopener noreferrer">Kadar Hall</FooterLink>
+            Created by <strong><FooterLink href="http://kadarhall.com" target="_blank" rel="noopener noreferrer">Kadar Hall</FooterLink></strong> and <strong><FooterLink href="https://www.instagram.com/clouds_inspiration365?igsh=ejhmc2Y5NGkyZjE=">©CloudsInspiration365</FooterLink></strong>
           </>
         </FooterCon>
 

@@ -27,14 +27,14 @@ export const GradientBackgroundCon = styled.div`
 export const BackgroundImage1 = styled(Image)`
   position: relative;
   z-index: 1;
-  margin-left: -10px;
+  margin-left: -44px;
   margin-top: -10px;
 `;
 
 export const BackgroundImage2 = styled(Image)`
   position: fixed;
   z-index: 1;
-  right: -120px;
+  right: -144px;
   bottom: -10px;
 `;
 
@@ -59,7 +59,7 @@ export const FooterLink = styled(Link)`
 export const QuoteGeneratorCon = styled.div`
   min-height: 350px;
   min-width: 350px;
-  height: 70vh;
+  height: 58vh;
   width: 70vw;
   border: 2px solid #ffffff22;
   border-radius: 15px;
